@@ -1,0 +1,7 @@
+.left-button-bar {
+    background-color: #2541b2;
+    padding-top: 50px;
+    height: 100vh;
+    width: 90px;
+    position: fixed;
+}
