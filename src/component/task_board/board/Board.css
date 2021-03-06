@@ -1,0 +1,28 @@
+html {
+    height: 100%;
+}
+
+.right-block {
+    padding-top: 60px;
+    margin-left: 370px;
+    height: 100%;
+    width: 80%;
+}
+
+.filter-span p {
+    width: 150px;
+    margin-top: 45px;
+    text-align: left;
+    font-size: 21px;
+}
+
+.board-title-span h1 {
+    width: 150px;
+    text-align: left;
+}
+
+.task-columns {
+    margin-top: 20px;
+    display: flex;
+    width: 100%;
+}

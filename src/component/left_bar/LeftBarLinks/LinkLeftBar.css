@@ -1,0 +1,39 @@
+.link-left-bar {
+    height: 50px;
+    border-radius: 3px;
+}
+
+.link-name-span {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    padding-left: 15px;
+}
+
+.link-name-span img {
+    width: 25px;
+    height: 25px;
+    align-self: center;
+}
+
+.link-name-span p {
+    margin-top: 13px;
+    font-size: 18px;
+    color: #6A6767;
+}
+
+.link-name-span img + p {
+    margin-left: 15px;
+}
+
+.link-left-bar:hover {
+    background-color: #E2E2E2;
+}
+
+.link-left-bar:hover p {
+   color: #2541B2;
+}
+
+.link-left-bar + .link-left-bar {
+    margin-top: 5px;
+}

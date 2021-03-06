@@ -1,0 +1,33 @@
+.team-signature-container {
+    margin-left: 3px;
+    text-align: left;
+}
+
+.team-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #AD79D7;
+}
+
+.avatar-and-team {
+    display: flex;
+}
+
+.team-name-and-description {
+    margin-left: 15px;
+    display: flex;
+    flex-direction: column;
+}
+
+.team-name {
+    font-size: 18px;
+}
+
+.team-description {
+    font-size: 14px;
+}
+
+.team-name + .team-description {
+    margin-top: 4px;
+}
