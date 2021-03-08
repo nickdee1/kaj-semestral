@@ -1,0 +1,7 @@
+.board-page-container {
+    display: flex;
+}
+
+.left-bar + .right-block {
+    margin-right: 40px;
+}

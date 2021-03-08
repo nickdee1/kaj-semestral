@@ -7,9 +7,18 @@ class LeftButtonBar extends React.Component {
     render() {
         return (
             <div>
-                <Col className="col-1 left-button-bar">
-
-                </Col>
+                <div className="left-button-bar">
+                    <div className="upper-images">
+                        <img id="logo" src={process.env.PUBLIC_URL + "/svg/" + "logo" + ".svg"}/>
+                        <img id="add" src={process.env.PUBLIC_URL + "/svg/" + "plus_add" + ".svg"}/>
+                    </div>
+                    <div className="bottom-images">
+                        <div className="help-and-avatar">
+                            <img id="help" src={process.env.PUBLIC_URL + "/svg/" + "help" + ".svg"}/>
+                            <img id="user-avatar"/>
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }

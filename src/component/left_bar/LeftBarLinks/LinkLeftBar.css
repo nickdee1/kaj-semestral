@@ -34,6 +34,10 @@
    color: #2541B2;
 }
 
+.link-left-bar:hover img {
+    filter: invert(19%) sepia(56%) saturate(3230%) hue-rotate(222deg) brightness(95%) contrast(96%);
+}
+
 .link-left-bar + .link-left-bar {
     margin-top: 5px;
 }

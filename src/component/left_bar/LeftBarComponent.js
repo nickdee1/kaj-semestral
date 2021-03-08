@@ -12,10 +12,10 @@ class LeftBarComponent extends React.Component {
     render() {
         return (
             <div>
-                <Col className="col-2 left-bar">
+                <div className="left-bar">
                     <TeamSignature/>
                     <LeftBarLinks/>
-                </Col>
+                </div>
             </div>
         )
     }

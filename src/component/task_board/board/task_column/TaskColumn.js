@@ -6,8 +6,8 @@ class TaskColumn extends React.Component {
         return (
             <div className="task-column">
                 <div className="column-name-div">
-                    <b>TO DO</b>
-                    <p>1</p>
+                    <b>{this.props.name}</b>
+                    <p>{this.props.count}</p>
                 </div>
             </div>
         )
