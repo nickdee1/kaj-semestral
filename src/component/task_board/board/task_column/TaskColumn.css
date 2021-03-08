@@ -11,6 +11,10 @@
     display: flex;
 }
 
+.tasks-container {
+    margin: 8px
+}
+
 .column-name-div b + p {
     margin-left: 10px;
 }

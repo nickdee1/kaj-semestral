@@ -1,6 +1,7 @@
 .link-left-bar {
     height: 50px;
     border-radius: 3px;
+    cursor: pointer;
 }
 
 .link-name-span {

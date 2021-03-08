@@ -20,15 +20,17 @@
 }
 
 #logo {
-    width: 50px;
-    height: 50px;
+    width: 45px;
+    height: 45px;
+    cursor: pointer;
     filter: invert(97%) sepia(3%) saturate(0%) hue-rotate(131deg) brightness(108%) contrast(101%);
 }
 
 #add {
-    width: 50px;
-    height: 50px;
+    width: 40px;
+    height: 40px;
     margin-top: 30px;
+    cursor: pointer;
     filter: invert(97%) sepia(3%) saturate(0%) hue-rotate(131deg) brightness(108%) contrast(101%);
 }
 
@@ -36,6 +38,7 @@
     margin-bottom: 20px;
     width: 25px;
     height: 25px;
+    cursor: pointer;
     filter: invert(97%) sepia(3%) saturate(0%) hue-rotate(131deg) brightness(108%) contrast(101%);
 }
 
@@ -44,4 +47,10 @@
     height: 50px;
     border-radius: 50%;
     background-color: white;
+    cursor: pointer;
+}
+
+#help:active {
+    width: 24px;
+    height: 24px;
 }

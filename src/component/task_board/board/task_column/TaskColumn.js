@@ -1,5 +1,6 @@
 import React from "react";
 import "./TaskColumn.css"
+import TaskItem from "../task/TaskItem";
 
 class TaskColumn extends React.Component {
     render() {
@@ -8,6 +9,9 @@ class TaskColumn extends React.Component {
                 <div className="column-name-div">
                     <b>{this.props.name}</b>
                     <p>{this.props.count}</p>
+                </div>
+                <div className="tasks-container">
+                    <TaskItem/>
                 </div>
             </div>
         )

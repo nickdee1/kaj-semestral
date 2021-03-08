@@ -1,0 +1,20 @@
+.task-item {
+    background-color: white;
+    padding: 6px;
+    height: 120px;
+    border-radius: 3px;
+    box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.2), 0 1px 2px 0 rgba(0, 0, 0, 0.19);
+    cursor: pointer;
+}
+
+.task-item + .task-item {
+    margin-top: 8px;
+}
+
+.task-item p {
+    text-align: left;
+}
+
+.task-item:active {
+    background-color: #e8f1fd;
+}
