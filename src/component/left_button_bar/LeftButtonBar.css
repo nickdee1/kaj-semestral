@@ -50,6 +50,11 @@
     cursor: pointer;
 }
 
+#add:active {
+    width: 39px;
+    height: 39px;
+}
+
 #help:active {
     width: 24px;
     height: 24px;
