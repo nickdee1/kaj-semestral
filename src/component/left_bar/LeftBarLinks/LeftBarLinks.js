@@ -1,6 +1,7 @@
 import React from "react";
 import "./LeftBarLinks.css"
 import LinkLeftBar from "./LinkLeftBar";
+import {LINK_NAME, SVG_IMAGE_NAME} from "../../../constants/links_constants";
 
 class LeftBarLinks extends React.Component {
     render() {
@@ -13,20 +14,6 @@ class LeftBarLinks extends React.Component {
             </div>
         )
     }
-}
-
-const LINK_NAME = {
-    BACKLOG: "Backlog",
-    BOARD: "Board",
-    ADD_ITEM: "Add Item",
-    SETTINGS: "Settings",
-}
-
-const SVG_IMAGE_NAME = {
-    BACKLOG: "tasks",
-    BOARD: "board",
-    ADD_ITEM: "add_item",
-    SETTINGS: "settings"
 }
 
 export default LeftBarLinks

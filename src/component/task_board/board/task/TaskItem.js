@@ -6,14 +6,14 @@ class TaskItem extends React.Component {
     render() {
         return (
             <div className="task-item">
-                <p>Task name</p>
+                <p>{this.props.name}</p>
                 <div className="tag-and-points">
                     <div>
                         <div className="tag">
-                            <b>Clever tag</b>
+                            <b>{this.props.tag}</b>
                         </div>
                         <div className="points-container">
-                            <b>3</b>
+                            <b>{this.props.points}</b>
                         </div>
                     </div>
                 </div>

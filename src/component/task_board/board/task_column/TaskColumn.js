@@ -3,6 +3,23 @@ import "./TaskColumn.css"
 import TaskItem from "../task/TaskItem";
 
 class TaskColumn extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            tasks: props.tasks
+        }
+    }
+
+    getTasks() {
+        if (this.state.tasks !== undefined) {
+            return this.state.tasks.map(t =>
+                <TaskItem name={t.name} tag={t.tag} points={t.points} />
+            )
+        }
+        return null
+    }
+
     render() {
         return (
             <div className="task-column">
@@ -11,7 +28,7 @@ class TaskColumn extends React.Component {
                     <p>{this.props.count}</p>
                 </div>
                 <div className="tasks-container">
-                    <TaskItem/>
+                    {this.getTasks()}
                 </div>
             </div>
         )
