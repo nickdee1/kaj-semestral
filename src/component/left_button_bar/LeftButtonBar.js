@@ -1,6 +1,4 @@
 import React from "react";
-import Col from "react-bootstrap/Col";
-import Button from "react-bootstrap/Button";
 import "./LeftButtonBar.css"
 
 class LeftButtonBar extends React.Component {
@@ -15,7 +13,21 @@ class LeftButtonBar extends React.Component {
                     <div className="bottom-images">
                         <div className="help-and-avatar">
                             <img id="help" src={process.env.PUBLIC_URL + "/svg/" + "help" + ".svg"}/>
-                            <img id="user-avatar"/>
+                            <div className="img-and-menu">
+                                <img id="user-avatar"/>
+                                <div className="user-popover-menu">
+                                    <div className="popover-menu-user-item">
+                                        Profile
+                                    </div>
+                                    <div className="popover-menu-user-item">
+                                        Profile Settings
+                                    </div>
+                                    <div className="line"/>
+                                    <div className="popover-menu-user-item">
+                                        Log out
+                                    </div>
+                                </div>
+                            </div>
                         </div>
                     </div>
                 </div>
