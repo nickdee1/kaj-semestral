@@ -4,11 +4,24 @@ import TaskInfo from "./task_info/TaskInfo";
 
 
 class TaskItem extends React.Component {
+
+    constructor(props) {
+        super(props);
+        this.state = {
+            taskInfoVisible: false
+        }
+    }
+
+    setTaskInfoVisible(visible) {
+        this.setState( {
+            taskInfoVisible: visible
+        })
+    }
+
     render() {
         return (
             <div>
-
-                <div className="task-item">
+                <div className="task-item" onClick={() => this.setTaskInfoVisible(true)}>
                     <p>{this.props.name}</p>
                     <div className="tag-and-points">
                         <div>
@@ -21,8 +34,7 @@ class TaskItem extends React.Component {
                         </div>
                     </div>
                 </div>
-
-                <TaskInfo/>
+                <TaskInfo open={this.state.taskInfoVisible} onClose={() => this.setTaskInfoVisible(false)}/>
             </div>
         )
     }

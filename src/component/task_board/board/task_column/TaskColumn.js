@@ -1,6 +1,7 @@
 import React from "react";
 import "./TaskColumn.css"
 import TaskItem from "../task/TaskItem";
+import TaskInfo from "../task/task_info/TaskInfo";
 
 class TaskColumn extends React.Component {
 
