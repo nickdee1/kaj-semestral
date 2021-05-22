@@ -1,5 +1,6 @@
 import React from "react";
 import "./LeftButtonBar.css"
+import LeftBarButton from "./LeftBarButton";
 
 class LeftButtonBar extends React.Component {
     render() {
@@ -16,16 +17,15 @@ class LeftButtonBar extends React.Component {
                             <div className="img-and-menu">
                                 <img id="user-avatar"/>
                                 <div className="user-popover-menu">
-                                    <div className="popover-menu-user-item">
+                                    <LeftBarButton>
                                         Profile
-                                    </div>
-                                    <div className="popover-menu-user-item">
+                                    </LeftBarButton>
+                                    <LeftBarButton>
                                         Profile Settings
-                                    </div>
-                                    <div className="line"/>
-                                    <div className="popover-menu-user-item">
-                                        Log out
-                                    </div>
+                                    </LeftBarButton>
+                                    <LeftBarButton>
+                                        Log Out
+                                    </LeftBarButton>
                                 </div>
                             </div>
                         </div>

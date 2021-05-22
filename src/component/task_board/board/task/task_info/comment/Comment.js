@@ -1,5 +1,6 @@
 import React from "react";
 import "./Comment.css"
+import {makeStyles} from '@material-ui/core';
 
 class Comment extends React.Component {
     render() {

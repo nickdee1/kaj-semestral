@@ -4,6 +4,7 @@ import { motion, AnimatePresence } from "framer-motion"
 import "./TaskInfo.css"
 import TextareaAutosize from 'react-autosize-textarea';
 import Comment from "./comment/Comment";
+import Field from "./field/Field";
 
 export default function TaskInfo({open, onClose}) {
 
@@ -23,7 +24,7 @@ export default function TaskInfo({open, onClose}) {
                         initial={{scale: 0}}
                         animate={{scale: 1}}
                         transition={{ duration: 0.3 }}
-                        exit={{ scale: 0,
+                        exit={{ opacity: 0,
                             transition: {
                                 duration: 0.2
                             }}}
@@ -52,18 +53,9 @@ export default function TaskInfo({open, onClose}) {
                                     <b id="task-state-name">IN PROGRESS</b>
                                 </div>
                                 <div id="fields">
-                                    <div id="field">
-                                        <b>Assignee</b>
-                                        <p>Name Firstname</p>
-                                    </div>
-                                    <div id="field">
-                                        <b>Tag</b>
-                                        <p>Very clever tag</p>
-                                    </div>
-                                    <div id="field">
-                                        <b>Estimate</b>
-                                        <p>2</p>
-                                    </div>
+                                    <Field name={'Assignee'} value={'123'}/>
+                                    <Field name={'Tag'} value={'Very clever tag'}/>
+                                    <Field name={'Estimate'} value={'2'}/>
                                 </div>
                             </div>
                         </div>

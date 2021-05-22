@@ -57,20 +57,8 @@
     filter: invert(97%) sepia(3%) saturate(0%) hue-rotate(131deg) brightness(108%) contrast(101%);
 }
 
-.popover-menu-user-item {
-    padding: 10px;
-    height: 33%;
-    display: flex;
-    align-items: center;
-    cursor: pointer;
-}
-
 .line {
     height: 1px;
-    background-color: #E2E2E2;
-}
-
-.popover-menu-user-item:hover {
     background-color: #E2E2E2;
 }
 

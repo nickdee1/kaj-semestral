@@ -124,12 +124,6 @@
     margin-top: 50px;
 }
 
-#field {
-    display: flex;
-    flex-direction: row;
-    justify-content: space-between;
-}
-
 #task-name-input:hover {
     background-color: #E2E2E2;
 }
