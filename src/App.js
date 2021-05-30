@@ -5,6 +5,7 @@ import TaskTableView from "./view/TaskTableView";
 import './App.css';
 import Login from './view/login/Login';
 import Register from './view/login/Register';
+import Settings from './view/backlog/Settings';
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
           <Route path="/login" component={Login}/>
           <Route path="/register" component={Register}/>
           <Route path="/board" component={TaskTableView}/>
+          <Route path="/backlog" component={Settings}/>
         </Switch>
       </Router>
     </div>
