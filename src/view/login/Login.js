@@ -11,7 +11,6 @@ const useStyles = makeStyles({
     marginTop: theme.spacing(8),
     display: 'flex',
     flexDirection: 'column',
-
   }
 })
 

@@ -1,6 +1,7 @@
 import React from "react";
 import Row from "react-bootstrap/Row";
 import Container from "react-bootstrap/Container";
+import AddIcon from '@material-ui/icons/Add'
 import LeftBarComponent from "../component/left_bar/LeftBarComponent";
 import LeftButtonBar from "../component/left_button_bar/LeftButtonBar";
 import Board from "../component/task_board/board/Board";
