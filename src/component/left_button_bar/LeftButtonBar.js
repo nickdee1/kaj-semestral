@@ -14,6 +14,13 @@ const LeftButtonBar = () => {
     setOpen(false);
   };
 
+  const handleCloseProject = () => {
+    localStorage.removeItem("project")
+    localStorage.removeItem("projectGoal")
+    localStorage.removeItem("projectId")
+    window.location.reload()
+  }
+
   return (
     <div>
       <div className="left-button-bar">
@@ -27,15 +34,7 @@ const LeftButtonBar = () => {
             <div className="img-and-menu">
               <img id="user-avatar"/>
               <div className="user-popover-menu">
-                <LeftBarButton>
-                  Profile
-                </LeftBarButton>
-                <LeftBarButton>
-                  Profile Settings
-                </LeftBarButton>
-                <LeftBarButton>
-                  Log Out
-                </LeftBarButton>
+                <LeftBarButton children={"Close project"} action={handleCloseProject} />
               </div>
             </div>
           </div>

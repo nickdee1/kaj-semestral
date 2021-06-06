@@ -9,6 +9,9 @@ import {ArrowForward} from '@material-ui/icons';
 import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
 import db from '../../db/TaskController';
+import {useLiveQuery} from 'dexie-react-hooks';
+import ProjectCard from './ProjectCard';
+import Link from '@material-ui/core/Link';
 
 const useStyles = makeStyles({
   mainGrid: {
@@ -23,7 +26,9 @@ const useStyles = makeStyles({
   },
   inputsGrid: {
     marginTop: "50px",
-    marginBottom: "50px"
+  },
+  fab: {
+    marginTop: "30px"
   }
 })
 
@@ -32,9 +37,17 @@ const FirstPage = () => {
   const [project, setProject] = useState({name: "", goals: ""})
   const [error, setError] = useState({open: false, errorMsg: ""})
   const [successOpen, setSuccessOpen] = useState(false)
+  const [existingProj, setExistingProj] = useState(false)
 
-  const handleSucessOpen = () => {
+  const allItems = useLiveQuery(() => db.projects.toArray(), []);
+
+  const handleSuccessOpen = () => {
     setSuccessOpen(true)
+  }
+
+  const handleLinkClick = (event) => {
+    event.preventDefault()
+    setExistingProj(true)
   }
 
   const handleErrorOpen = (errorMsg) => {
@@ -78,10 +91,11 @@ const FirstPage = () => {
 
     db.projects.add({project})
       .then((res) => {
-        handleSucessOpen()
+        handleSuccessOpen()
         localStorage.setItem("project", project.name)
         localStorage.setItem("projectGoal", project.goals)
         localStorage.setItem("projectId", res)
+        window.location.reload()
       }).catch(() => {
         handleErrorOpen("Something went wrong with database")
     })
@@ -90,7 +104,7 @@ const FirstPage = () => {
 
   const styles = useStyles()
 
-  return(
+  const newProject = () => (
     <AnimatePresence>
       <Grid container direction="row">
         <Grid item xs={3}>
@@ -126,16 +140,23 @@ const FirstPage = () => {
             >
               <TextField onChange={setName} placeholder="Give a name to your project" className={styles.textField} label="Name"/>
               <TextField onChange={setGoal} placeholder="Give a description about your goals for this project" className={styles.textField} label="Goals"/>
+
             </motion.div>
           </Grid>
-
+          <Grid>
+            {allItems ?
+              <Link href="" onClick={handleLinkClick}>
+                Or choose existing project...
+              </Link> : <div/>
+            }
+          </Grid>
 
           <motion.div
             initial={{opacity: 0}}
             transition={{duration: 3.0}}
             animate={{opacity: 1.0}}
           >
-            <Fab color="primary" onClick={handleSubmit}>
+            <Fab className={styles.fab} color="primary" onClick={handleSubmit}>
               <ArrowForward/>
             </Fab>
           </motion.div>
@@ -170,6 +191,61 @@ const FirstPage = () => {
       </Snackbar>
     </AnimatePresence>
   )
+
+  const chooseExistingProject = () => (
+    <AnimatePresence>
+      <Grid container direction="row">
+        <Grid item xs={3}>
+        </Grid>
+        <Grid item xs={6} className={styles.mainGrid}>
+          <Grid>
+            <motion.div
+              initial={{opacity: 0}}
+              transition={{duration: 1.0}}
+              animate={{opacity: 1.0}}
+            >
+              <Typography className={styles.text} variant="h2">
+                👇️ Choose a project below
+              </Typography>
+            </motion.div>
+
+            <motion.div
+              initial={{opacity: 0}}
+              transition={{duration: 2.0}}
+              animate={{opacity: 0.7}}
+            >
+              <Typography className={styles.text} variant="h5">
+                Projects that you have created before
+              </Typography>
+              <Grid>
+                {allItems.map(item =>
+                  <ProjectCard
+                    name={item.project.name}
+                    goals={item.project.goals}
+                    id={item.id}
+                  />)}
+              </Grid>
+            </motion.div>
+            <Link href="" onClick={() => setExistingProj(false)}>
+              Back
+            </Link>
+          </Grid>
+        </Grid>
+        <Grid item xs={3}>
+        </Grid>
+      </Grid>
+    </AnimatePresence>
+  )
+
+
+  if (existingProj) {
+    return(
+      chooseExistingProject()
+    )
+  } else {
+    return newProject()
+  }
+
 }
 
 export default FirstPage

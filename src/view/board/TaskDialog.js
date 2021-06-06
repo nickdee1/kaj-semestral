@@ -72,12 +72,10 @@ const TaskDialog = ({data, id, open, handleClose}) => {
   }
 
   const changeName = (event) => {
-    console.log("123")
     setNameChanged(event.target.value)
   }
 
   const changeDescription = (event) => {
-    console.log("123")
     setDescriptionChanged(event.target.value)
   }
 
