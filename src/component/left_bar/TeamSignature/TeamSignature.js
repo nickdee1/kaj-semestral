@@ -1,20 +1,34 @@
-import React, {useEffect, useState} from 'react';
+import React from 'react';
 import './TeamSignature.css'
-import {useLiveQuery} from 'dexie-react-hooks';
-import db from '../../../db/TaskController';
+import {makeStyles, Typography} from '@material-ui/core';
+import Grid from '@material-ui/core/Grid';
+
+const useStyles = makeStyles({
+  teamName: {
+    maxWidth: "200px",
+    fontWeight: "bold"
+  },
+  goals: {
+    maxWidth: "200px",
+    fontSize: "14px",
+  }
+})
 
 const TeamSignature = ({name, goals}) => {
+  const styles = useStyles()
 
   return (
-    <div className="team-signature-container">
-      <span className="avatar-and-team">
+
+    <Grid container direction="row">
+      <Grid item xs={3}>
         <div className="team-avatar"/>
-        <div className="team-name-and-description">
-          <b className="team-name">{name}</b>
-          <p className="team-description">{goals}</p>
-        </div>
-      </span>
-    </div>
+      </Grid>
+      <Grid item xs={9}>
+        <Typography noWrap align="left" className={styles.teamName}>{name}</Typography>
+        <Typography noWrap display="block" align="left" className={styles.goals}>{goals}</Typography>
+      </Grid>
+
+    </Grid>
   )
 
 }

@@ -22,6 +22,9 @@ const useStyles = makeStyles({
     flexDirection: "row",
     justify: "center",
     alignItems: "center",
+  },
+  projectTexts: {
+    width: "85%"
   }
 })
 
@@ -43,10 +46,10 @@ const ProjectCard = ({name, goals, id}) => {
         <Grid container direction="row">
           <Grid item xs={11} className={styles.titlesGrid}>
             <Grid direction="column">
-              <Typography variant="h5">
+              <Typography noWrap className={styles.projectTexts} variant="h5" align="left">
                 {name}
               </Typography>
-              <Typography>
+              <Typography noWrap align="left">
                 {goals}
               </Typography>
             </Grid>

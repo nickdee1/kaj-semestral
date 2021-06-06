@@ -4,6 +4,9 @@ import './LeftBarComponent.css'
 import TeamSignature from './TeamSignature/TeamSignature';
 import LeftBarLinks from './LeftBarLinks/LeftBarLinks';
 
+/**
+ * Left (grey) bar with project signature and links
+ * */
 const LeftBarComponent = ({project, goals}) => {
 
   return (

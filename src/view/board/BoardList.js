@@ -22,6 +22,9 @@ const useStyles = makeStyles({
   }
 })
 
+/**
+ * Component for exact column in board
+ * */
 const BoardList = ({listData, columnId}) => {
 
   const styles = useStyles()
@@ -35,6 +38,7 @@ const BoardList = ({listData, columnId}) => {
               <b>{columnId}</b>  {listData.length}
             </Typography>
 
+            {/* Map all data to TaskCard */}
             <div {...provided.droppableProps} ref={provided.innerRef}>
               {listData.map((task, index) => (
                 <TaskCard data={task} index={index}/>

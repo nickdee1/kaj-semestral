@@ -3,12 +3,7 @@ import  { BrowserRouter as Router, Redirect, Switch, Route } from 'react-router-
 import TaskTableView from "./view/TaskTableView";
 
 import './App.css';
-import Login from './view/login/Login';
-import Register from './view/login/Register';
 import Settings from './view/settings/Settings';
-import Profile from './view/profile/Profile';
-import TestDnD from './view/settings/TestDnd';
-import TeamBoard from './view/board/TeamBoard';
 import FirstPage from './view/greetings/FirstPage';
 
 function App() {
@@ -26,9 +21,6 @@ function App() {
             </Route>
             <Route path="/settings">
               {!isInProject() ? <Redirect to="/"/> : <Settings/>}
-            </Route>
-            <Route path="/profile">
-              {!isInProject() ? <Redirect to="/"/> : <Profile/>}
             </Route>
             <Route path="/">
               {isInProject() ? <Redirect to="/board"/> : <FirstPage/>}

@@ -3,6 +3,9 @@ import Col from "react-bootstrap/Col";
 import "./Board.css"
 import TeamBoard from '../../../view/board/TeamBoard';
 
+/**
+ * Component for task board and title.
+ * */
 const Board = ({db}) => {
 
   return (

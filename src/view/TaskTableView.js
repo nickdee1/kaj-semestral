@@ -4,6 +4,9 @@ import LeftButtonBar from '../component/left_button_bar/LeftButtonBar';
 import Board from '../component/task_board/board/Board';
 import './TaskTableView.css'
 
+/**
+ * Component showing table with tasks
+ * */
 const TaskTableView = () => {
 
   let name = localStorage.getItem('project')

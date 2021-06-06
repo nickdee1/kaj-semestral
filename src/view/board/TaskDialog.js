@@ -21,6 +21,10 @@ const useStyles = makeStyles({
     marginBottom: "20px"
   }
 })
+
+/**
+ * Component for showing details / editing / deletion of card
+ * */
 const TaskDialog = ({data, id, open, handleClose}) => {
   const styles = useStyles()
 
@@ -108,7 +112,7 @@ const TaskDialog = ({data, id, open, handleClose}) => {
         <Grid container>
           <Grid item xs={9} className={styles.grid}>
             <h5>Title</h5>
-            <TextField onChange={changeName} placeholder={data.name} className={styles.textField}/>
+            <TextField fullWidth onChange={changeName} placeholder={data.name} className={styles.textField}/>
             <h5>Description</h5>
             <TextareaAutosize className={styles.textArea} rowsMin={3} onChange={changeDescription}>
               {data.description}

@@ -18,9 +18,15 @@ const useStyles = makeStyles({
     marginTop: "20px",
     display: "flex",
     justifyContent: "flex-start"
+  },
+  taskName: {
+    maxWidth: "120px"
   }
 })
 
+/**
+ * Component for task card.
+ * */
 const TaskCard = ({data, index}) => {
 
   const styles = useStyles()
@@ -43,12 +49,15 @@ const TaskCard = ({data, index}) => {
             {...provided.dragHandleProps}>
             <Card className={styles.card} onClick={handleOpen}>
               <CardContent className={styles.cardContent}>
-                <Typography align="left">
+                <Typography noWrap align="left" className={styles.taskName}>
                   {data.item.name}
                 </Typography>
-                <div className={styles.tag}>
-                  <Chip color="primary" variant="outlined" label={data.item.points}/>
-                </div>
+                {data.item.points ?
+                  <div className={styles.tag}>
+                    <Chip color="primary" variant="outlined" label={data.item.points}/>
+                  </div> :
+                  <div/>
+                }
               </CardContent>
             </Card>
 

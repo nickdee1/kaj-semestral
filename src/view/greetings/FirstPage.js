@@ -32,6 +32,10 @@ const useStyles = makeStyles({
   }
 })
 
+/**
+ * Very first page that is shown to a user.
+ * User can create a project here all choose from existing ones
+ * */
 const FirstPage = () => {
 
   const [project, setProject] = useState({name: "", goals: ""})
@@ -104,6 +108,7 @@ const FirstPage = () => {
 
   const styles = useStyles()
 
+  /* If user chooses to create a new project */
   const newProject = () => (
     <AnimatePresence>
       <Grid container direction="row">
@@ -192,6 +197,7 @@ const FirstPage = () => {
     </AnimatePresence>
   )
 
+  /* If user chooses to pick an existing project */
   const chooseExistingProject = () => (
     <AnimatePresence>
       <Grid container direction="row">

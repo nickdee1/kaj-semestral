@@ -21,23 +21,29 @@ const tasks = [
   }
 ]
 
+/**
+ * Component for showing tasks for current project
+ * */
 const TeamBoard = () => {
 
   const [tasksData, setTasksData] = useState(tasks)
   const allItems = useLiveQuery(() => db.tasks.toArray(), []);
   const currentProject = localStorage.getItem("projectId")
+
   useEffect( () => {
     if (allItems) {
       setTasksData(allItems)
     }
   })
 
+  /* Get tasks for exact column for current project */
   const getTasks = (column) => {
     return tasksData.filter(task => {
       return task.item.projectId === currentProject && task.item.state === column
     })
   }
 
+  /* Arrow function handling actions that should happen when task is dragged and dropped */
   const onDragEnd = (result) => {
     const { source, destination } = result;
 
@@ -45,11 +51,12 @@ const TeamBoard = () => {
       return;
     }
     if (source.droppableId !== destination.droppableId) {
-      reorderCardPosition(source, destination, result.draggableId)
+      updateCardInDb(source, destination, result.draggableId)
     }
   }
 
-  const reorderCardPosition = (source, destination, cardId) => {
+  /* Update state of task in DB */
+  const updateCardInDb = (source, destination, cardId) => {
     console.log(destination.droppableId)
     db.tasks.update(parseInt(cardId), {"item.state": destination.droppableId}).then(updated => {
       if (updated) {
@@ -61,6 +68,7 @@ const TeamBoard = () => {
   }
 
   return(
+    // Context for drag and drop usage
     <DragDropContext onDragEnd={onDragEnd}>
       <Grid container direction="row">
         <BoardList listData={getTasks("TO DO")} columnId={"TO DO"}/>
