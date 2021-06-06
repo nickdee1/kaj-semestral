@@ -7,15 +7,11 @@ import Login from './view/login/Login';
 import Register from './view/login/Register';
 import Settings from './view/settings/Settings';
 import Profile from './view/profile/Profile';
-import {DragDropContext} from 'react-beautiful-dnd';
 import TestDnD from './view/settings/TestDnd';
 import TeamBoard from './view/board/TeamBoard';
+import FirstPage from './view/greetings/FirstPage';
 
 function App() {
-
-  const onDragEnd = useCallback(() => {
-
-  }, []);
 
   return (
       <div className="App">
@@ -28,6 +24,7 @@ function App() {
             <Route path="/profile" component={Profile}/>
             <Route path="/test" component={TestDnD}/>
             <Route path="/board2" component={TeamBoard}/>
+            <Route path="/first" component={FirstPage}/>
           </Switch>
         </Router>
       </div>

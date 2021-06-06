@@ -13,7 +13,7 @@ const useStyles = makeStyles({
   }
 })
 
-const TaskDialog = ({data, open, handleClose}) => {
+const TaskDialog = ({data, id, open, handleClose}) => {
   const styles = useStyles()
 
   return(
@@ -22,7 +22,7 @@ const TaskDialog = ({data, open, handleClose}) => {
       onClose={handleClose}
       fullWidth
     >
-      <DialogTitle>{data.name}</DialogTitle>
+      <DialogTitle contentEditable>{data.name}</DialogTitle>
       <DialogContent>
         <Grid container>
           <Grid item xs={9} className={styles.grid}>
@@ -35,6 +35,10 @@ const TaskDialog = ({data, open, handleClose}) => {
             <h5>State</h5>
             <DialogContentText>
               {data.state}
+            </DialogContentText>
+            <h5>Estimate</h5>
+            <DialogContentText contentEditable>
+              {data.points}
             </DialogContentText>
             <h5>Tag</h5>
             <DialogContentText>
