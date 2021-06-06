@@ -47,7 +47,7 @@ const TaskCard = ({data, index}) => {
                   {data.item.name}
                 </Typography>
                 <div className={styles.tag}>
-                  <Chip color="primary" variant="outlined" label="2"/>
+                  <Chip color="primary" variant="outlined" label={data.item.points}/>
                 </div>
               </CardContent>
             </Card>

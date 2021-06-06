@@ -1,5 +1,5 @@
-import React, {useCallback} from 'react';
-import { BrowserRouter as Router, Switch, Route } from 'react-router-dom';
+import React, {useCallback, useState} from 'react';
+import  { BrowserRouter as Router, Redirect, Switch, Route } from 'react-router-dom';
 import TaskTableView from "./view/TaskTableView";
 
 import './App.css';
@@ -13,18 +13,26 @@ import FirstPage from './view/greetings/FirstPage';
 
 function App() {
 
+  const isInProject = () => {
+    return (localStorage.getItem("project") && localStorage.getItem("projectGoal") && localStorage.getItem("projectId"))
+  }
+
   return (
       <div className="App">
         <Router>
           <Switch>
-            <Route path="/login" component={Login}/>
-            <Route path="/register" component={Register}/>
-            <Route path="/board" component={TaskTableView}/>
-            <Route path="/settings" component={Settings}/>
-            <Route path="/profile" component={Profile}/>
-            <Route path="/test" component={TestDnD}/>
-            <Route path="/board2" component={TeamBoard}/>
-            <Route path="/first" component={FirstPage}/>
+            <Route path="/board">
+              {!isInProject() ? <Redirect to="/"/> : <TaskTableView/>}
+            </Route>
+            <Route path="/settings">
+              {!isInProject() ? <Redirect to="/"/> : <Settings/>}
+            </Route>
+            <Route path="/profile">
+              {!isInProject() ? <Redirect to="/"/> : <Profile/>}
+            </Route>
+            <Route path="/">
+              {isInProject() ? <Redirect to="/board"/> : <FirstPage/>}
+            </Route>
           </Switch>
         </Router>
       </div>

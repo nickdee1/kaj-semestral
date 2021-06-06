@@ -74,6 +74,7 @@ const AddItemDialog = ({open, handleClose}) => {
     }
 
     item.state = "TO DO"
+    item.projectId = localStorage.getItem("projectId")
     setItem(item)
     await db.tasks.add({item})
     handleClose()

@@ -31,6 +31,11 @@ const FirstPage = () => {
 
   const [project, setProject] = useState({name: "", goals: ""})
   const [error, setError] = useState({open: false, errorMsg: ""})
+  const [successOpen, setSuccessOpen] = useState(false)
+
+  const handleSucessOpen = () => {
+    setSuccessOpen(true)
+  }
 
   const handleErrorOpen = (errorMsg) => {
     setError({
@@ -71,7 +76,16 @@ const FirstPage = () => {
       return
     }
 
-    await db.projects.add({project})
+    db.projects.add({project})
+      .then((res) => {
+        handleSucessOpen()
+        localStorage.setItem("project", project.name)
+        localStorage.setItem("projectGoal", project.goals)
+        localStorage.setItem("projectId", res)
+      }).catch(() => {
+        handleErrorOpen("Something went wrong with database")
+    })
+
   }
 
   const styles = useStyles()
@@ -140,6 +154,18 @@ const FirstPage = () => {
       >
         <MuiAlert severity="error">
           {error.errorMsg}
+        </MuiAlert>
+      </Snackbar>
+      <Snackbar
+        anchorOrigin={{
+          vertical: 'bottom',
+          horizontal: 'left',
+        }}
+        open={successOpen}
+        autoHideDuration={6000}
+      >
+        <MuiAlert severity="success">
+          Project has been successfully created
         </MuiAlert>
       </Snackbar>
     </AnimatePresence>

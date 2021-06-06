@@ -1,22 +1,26 @@
-import React from "react";
-import Row from "react-bootstrap/Row";
-import Container from "react-bootstrap/Container";
-import AddIcon from '@material-ui/icons/Add'
-import LeftBarComponent from "../component/left_bar/LeftBarComponent";
-import LeftButtonBar from "../component/left_button_bar/LeftButtonBar";
-import Board from "../component/task_board/board/Board";
-import "./TaskTableView.css"
+import React from 'react';
+import LeftBarComponent from '../component/left_bar/LeftBarComponent';
+import LeftButtonBar from '../component/left_button_bar/LeftButtonBar';
+import Board from '../component/task_board/board/Board';
+import './TaskTableView.css'
 
-class TaskTableView extends React.Component {
-    render() {
-        return (
-            <div className="board-page-container">
-                <LeftButtonBar/>
-                <LeftBarComponent/>
-                <Board/>
-            </div>
-        )
-    }
+const TaskTableView = () => {
+
+  let name = localStorage.getItem('project')
+  let goals = localStorage.getItem('projectGoal')
+
+  if (!name || !goals) {
+    name = "Project"
+    goals = "Goals"
+  }
+  return (
+    <div className="board-page-container">
+      <LeftButtonBar/>
+      <LeftBarComponent goals={goals} project={name}/>
+      <Board/>
+    </div>
+  )
+
 }
 
 export default TaskTableView
