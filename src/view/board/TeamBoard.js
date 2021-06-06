@@ -37,14 +37,42 @@ const TeamBoard = () => {
     })
   }
 
+  const onDragEnd = (result) => {
+    const { source, destination } = result;
+
+    if (!destination) {
+      return;
+    }
+
+    // console.log("============")
+    // console.log(source)
+    // console.log(destination)
+    // console.log(result)
+    // console.log("============")
+    if (source.droppableId !== destination.droppableId) {
+      reorderCardPosition(source, destination, result.draggableId)
+    }
+  }
+
+  const reorderCardPosition = (source, destination, cardId) => {
+    console.log(destination.droppableId)
+    db.tasks.update(parseInt(cardId), {"item.state": destination.droppableId}).then(updated => {
+      if (updated) {
+        console.log("updated")
+      } else {
+        console.log("Not updated")
+      }
+    })
+  }
+
   return(
-    <DragDropContext onDragEnd={() => console.log("")}>
+    <DragDropContext onDragEnd={onDragEnd}>
       <Grid container direction="row">
-        <BoardList listData={getTasks("TO DO")} columnId={"To do"}/>
-        <BoardList listData={getTasks("IN PROGRESS")} columnId={"Blocked"}/>
-        <BoardList listData={getTasks("IN REVIEW")} columnId={"In progress"}/>
-        <BoardList listData={getTasks("IN TEST")} columnId={"In test"}/>
-        <BoardList listData={getTasks("DONE")} columnId={"Done"}/>
+        <BoardList listData={getTasks("TO DO")} columnId={"TO DO"}/>
+        <BoardList listData={getTasks("IN PROGRESS")} columnId={"IN PROGRESS"}/>
+        <BoardList listData={getTasks("IN REVIEW")} columnId={"IN REVIEW"}/>
+        <BoardList listData={getTasks("IN TEST")} columnId={"IN TEST"}/>
+        <BoardList listData={getTasks("DONE")} columnId={"DONE"}/>
       </Grid>
     </DragDropContext>
   )

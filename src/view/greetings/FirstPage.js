@@ -8,6 +8,7 @@ import ArrowForwardIosIcon from '@material-ui/icons/ArrowForwardIos';
 import {ArrowForward} from '@material-ui/icons';
 import MuiAlert from '@material-ui/lab/Alert';
 import Snackbar from '@material-ui/core/Snackbar';
+import db from '../../db/TaskController';
 
 const useStyles = makeStyles({
   mainGrid: {
@@ -55,7 +56,7 @@ const FirstPage = () => {
   }
 
   const setGoal = (goal) => {
-    project.goal = goal.target.value
+    project.goals = goal.target.value
     setProject(project)
   }
 
@@ -70,6 +71,7 @@ const FirstPage = () => {
       return
     }
 
+    await db.projects.add({project})
   }
 
   const styles = useStyles()
